@@ -1,0 +1,72 @@
+﻿@model ICollection<WDDNProject.Models.Result>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<br />
+@if (Model.Count == 0)
+{
+    <center><h1>No Result Available</h1></center>
+}
+@if (Model.Count != 0)
+{
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Index
+            </th>
+            <th>
+                Student Name
+            </th>
+            <th>
+                Exam
+            </th>
+            <th>
+                Total Marks
+            </th>
+            <th>
+                Obtained Marks
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ 
+            int count = 0;
+        }
+        @foreach (var item in Model)
+        {
+            count++;
+        <tr>
+            <td>
+                @count
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AppUser.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Exam.Subject)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.totalMarks)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.obtainedMarks)
+            </td>
+            <td>
+               
+                <a asp-action="Details" asp-route-id="@item.id">Details</a> 
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+            }
