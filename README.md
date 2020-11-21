@@ -1,2 +1,2 @@
-# Project_CE117_CE112
+# Project_CE117_CE122
  Online Exam Portal (Dot net core MVC Project)
